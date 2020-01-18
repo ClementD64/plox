@@ -26,13 +26,16 @@ From Bob Nystrom's book [crafting interpreters](https://www.craftinginterpreters
 * Nested multi-line comments
 * Scan Token on the fly
 
-## Install
-
-Download `lox.phar`
-
-Or
+## Use It
 
 clone this repository and run
+
+```
+php src/main.php [script]
+```
+
+You can also use
 ```
 make
 ```
+to create the phar

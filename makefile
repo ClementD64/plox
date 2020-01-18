@@ -6,3 +6,6 @@ phar-builder.phar:
 
 build: phar-builder.phar
 	./phar-builder.phar src lox.phar -m main.php -l Lox.php
+
+generateAst:
+	php tool/generateAst.php src

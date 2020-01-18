@@ -5,7 +5,7 @@ namespace Lox;
 require_once 'Lox.php';
 
 if ($argc > 2) {
-    echo "Usage: plox [script]\n";
+    fwrite(STDERR, "Usage: plox [script]\n");
     exit(64);
 } else if ($argc === 2) {
     if (file_exists($argv[1])) {
