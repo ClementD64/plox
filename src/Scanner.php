@@ -158,6 +158,7 @@ class Scanner {
     }
 
     private function peek(): string {
+        if ($this->isAtEnd()) return "\0";
         return $this->src[$this->current];
     }
 
