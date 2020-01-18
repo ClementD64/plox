@@ -6,15 +6,15 @@ abstract class Expr {
     abstract public function accept(ExprVisitor $visitor);
 }
 
-trait ExprVisitor {
-    abstract public function visitBianryExpr(Bianry $expr);
-    abstract public function visitGroupingExpr(Grouping $expr);
-    abstract public function visitLiteralExpr(Literal $expr);
-    abstract public function visitUnaryExpr(Unary $expr);
+interface ExprVisitor {
+    public function visitBinaryExpr(ExprBinary $expr);
+    public function visitGroupingExpr(ExprGrouping $expr);
+    public function visitLiteralExpr(ExprLiteral $expr);
+    public function visitUnaryExpr(ExprUnary $expr);
 }
 
 
-class ExprBianry extends Expr {
+class ExprBinary extends Expr {
     public $left;
     public $operator;
     public $right;
@@ -26,7 +26,7 @@ class ExprBianry extends Expr {
     }
 
     public function accept(ExprVisitor $visitor) {
-        return $visitor->visitBianryExpr($this);
+        return $visitor->visitBinaryExpr($this);
     }
 }
 

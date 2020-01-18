@@ -28,7 +28,7 @@ class GenerateAst {
         }
         $outputDir = $argv[1];
         $this->defineAst($outputDir, 'Expr', [
-            'Bianry   : Expr $left, Token $operator, Expr $right',
+            'Binary   : Expr $left, Token $operator, Expr $right',
             'Grouping : Expr $expression',
             'Literal  : mixed $value',
             'Unary    : Token $operator, Expr $right'
@@ -85,12 +85,12 @@ class GenerateAst {
     }
 
     private function defineVisitor(File $file, string $baseName, array $types) {
-        $file->println('trait '.$baseName.'Visitor {');
+        $file->println('interface '.$baseName.'Visitor {');
         
         foreach ($types as $type) {
             $typeName = trim(explode(':', $type)[0]);
-            $file->println('    abstract public function visit'.$typeName.$baseName.
-                '('.$typeName.' $'.strtolower($baseName).');');
+            $file->println('    public function visit'.$typeName.$baseName.
+                '('.$baseName.$typeName.' $'.strtolower($baseName).');');
         }
 
         $file->println('}');
