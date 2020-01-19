@@ -12,7 +12,7 @@ From Bob Nystrom's book [crafting interpreters](https://www.craftinginterpreters
 
 * [x] Scanning
 * [x] Representing Code
-* [ ] Parsing Expressions
+* [x] Parsing Expressions
 * [ ] Evaluating Expressions
 * [ ] Statements and State
 * [ ] Control Flow
@@ -25,6 +25,7 @@ From Bob Nystrom's book [crafting interpreters](https://www.craftinginterpreters
 
 * Nested multi-line comments
 * Scan Token on the fly
+* Pratt parser
 
 ## Use It
 

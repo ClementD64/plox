@@ -2,19 +2,17 @@
 
 namespace Lox;
 
-require_once 'TokenType.php';
-require_once 'Scanner.php';
+require_once 'Parser.php';
+require_once 'AstPrinter.php';
 
 class Lox {
     public function run(string $code) {
-        $scanner = new Scanner($code);
-
-        for (;;) {
-            $token = $scanner->scanToken();
-            if ($token->type === TokenType::EOF()) return;
-            echo ($token->type === TokenType::ERROR()
-                ? $token->value
-                : $token). "\n";
-        } 
+        try {
+            $parser = new Parser($code);
+            $expr = $parser->parse();
+            echo (new AstPrinter())->print($expr) . "\n";
+        } catch (ParseError $e) {
+            echo $e->getMessage() . "\n";
+        }
     }
 }
